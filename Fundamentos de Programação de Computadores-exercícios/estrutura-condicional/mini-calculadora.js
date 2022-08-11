@@ -15,7 +15,7 @@ let escolheOperacao = opcaoUsuario =>{
 }
 
 function main(){
-    let opcaoUsuario = 0;
+    let opcaoUsuario;
     let operacao = escolheOperacao(opcaoUsuario);
     console.log(operacao);
 }
