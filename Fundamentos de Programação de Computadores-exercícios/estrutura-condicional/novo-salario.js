@@ -10,7 +10,7 @@ let calcBonificacao = salario =>{
 
 function main(){
     let salario;
-    if(!salario) return;
+    if(!salario || salario < 0) return;
 
     let bonificacao = calcBonificacao(salario);
     let auxilio = calcAuxilio(salario);

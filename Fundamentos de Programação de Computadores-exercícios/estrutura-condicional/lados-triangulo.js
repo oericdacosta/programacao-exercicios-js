@@ -13,6 +13,8 @@ function main(){
     let ladoX = 5;
     let ladoY = 3;
     let ladoZ = 4;
+    if(!ladoX || !ladoY || !ladoZ) return;
+    if(ladoX < 0 || ladoY < 0 || ladoZ < 0) return;
     verificaTipoTriangulo(ladoX, ladoY, ladoZ);
 }
 

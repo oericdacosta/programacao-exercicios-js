@@ -7,7 +7,8 @@ function verificarCategoria(salario){
 let calcSalarioLiquido = (salario, imposto, gratificacao) => salario - imposto + gratificacao;
 
 function calcGratificacao(salario, tempoServico){
-    if( salario > 0 && salario <= 500){
+    if(salario === 0) return 0;
+    if(salario <= 500){
         return (tempoServico > 0 && tempoServico <= 3) ? 20 : 50;
     }
     if(tempoServico > 0 && tempoServico <= 3) return 23;
@@ -26,10 +27,12 @@ function main(){
     let salarioBase;
     salarioBase = salarioBase ?? 200;
     if(Number.isNaN(salarioBase)) return;
+    if(salarioBase < 0) return;
 
     let tempoServico;
     tempoServico = tempoServico ?? 3;
     if(Number.isNaN(tempoServico)) return;
+    if(tempoServico < 0) return;
 
     let imposto = calcImposto(salarioBase);
     let gratificacao = calcGratificacao(salarioBase, tempoServico);
