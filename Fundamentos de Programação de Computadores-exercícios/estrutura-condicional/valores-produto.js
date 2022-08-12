@@ -1,9 +1,8 @@
 let precoTotalProduto = (precoTotal, imposto) => precoTotal + (precoTotal * imposto);
 
 function valorImposto(codigoPaisOrigem){
-    if(codigoPaisOrigem === 1) return 0;
-    if(codigoPaisOrigem === 2) return 0.15;
-    return 0.25;
+    let taxas = [0, 0.15, 0.25];
+    return taxas[codigoPaisOrigem - 1];
 }
 
 function calcPrecoTotal(codigoProduto,pesoEmGramas){
@@ -18,14 +17,14 @@ let convertePesoProduto = pesoProdutoKg => pesoProdutoKg * 1000;
 function main(){
     let codigoProduto;
     codigoProduto = codigoProduto ?? 0;
-    if(codigoProduto < 1 && codigoProduto > 10) return;
+    if(codigoProduto < 1 || codigoProduto > 10) return;
 
     let pesoProdutoKg;
     pesoEmGramas = pesoEmGramas ?? 0;
 
     let codigoPaisOrigem;
     codigoPaisOrigem = codigoPaisOrigem ?? 0;
-    if(codigoPaisOrigem < 1 && codigoPaisOrigem > 3) return;
+    if(codigoPaisOrigem < 1 || codigoPaisOrigem > 3) return;
 
     let pesoEmGramas = convertePesoProduto(pesoProdutoKg);
     let precoTotal = calcPrecoTotal(codigoProduto, pesoEmGramas);
